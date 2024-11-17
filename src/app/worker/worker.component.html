@@ -1,0 +1,40 @@
+<!-- The problem is that when you press enter in the input field, 
+ the form is submitted twice. This is because the default behavior of a form is
+  to submit when the user presses enter. To solve this, you can add a button with
+   type="submit" that will be the only button that submits the form. -->
+<!--form (ngSubmit)="addItem(workerDummy); newItemForm.reset()" #newItemForm="ngForm">
+<input type="text" [(ngModel)]="workerDummy.fullName" name="fullname" placeholder="Enter Fullname" /> <br> 
+<input type="text" [(ngModel)]="workerDummy.username" name="username" placeholder="Enter username" /> <br>
+<input type="text" [(ngModel)]="workerDummy.email" name="email" placeholder="Enter email" /> <br>
+<input type="number" [(ngModel)]="workerDummy.age" name="age" placeholder="Enter age" /> <br>
+<input type="text" [(ngModel)]="workerDummy.passwordHash" name="passwordHash" placeholder="Enter password" /> <br>
+<button type="submit">Add Worker</button>
+</form-->
+
+<button (click)="addItem(formData);">Add Worker</button>
+
+
+<h1>List of workers</h1>
+<table class="table">
+  <thead>
+    <th>Fullname</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>passwordHash</th>
+    <th>description </th>
+    <th>Tags</th>
+    <th>Contact</th>
+  </thead>
+
+  <tbody *ngFor="let item of data">
+    <th>{{item.fullName}}</th>
+    <th>{{item.username}}</th>
+    <th>{{item.email}}</th>
+    <th>{{item.age}}</th>
+    <th>|encripted|</th>
+    <th>{{item.description}}</th>
+    <th>{{item.tags}}</th>
+    <th>{{item.contact}}</th>
+  </tbody>
+</table>
